@@ -15,20 +15,19 @@ public class ExtendedTime extends SimpleTime {
 	}
 
 	// builder
-
-	public ExtendedTime(int hour, int min, int sec,boolean is24Hours) {
+	public ExtendedTime(int hour, int min, int sec, boolean is24Hours) {
 		super(hour, min, sec);
-		if(!is24Hours) {
-		}else if(hour<12){
-		}else {
-			this.hour=hour;
+		if (!is24Hours) {
+			if (hour > 12) {
+				hour = 12;
+			}
 		}
 	}
-	
+
 	public String toString(Object ExtendedTime) {
-		System.out.println("The Time is:"+"  "+getHour()+":"+getMin()+":"+getSec());
+		System.out.println("The Time is:" + " " + getHour() + ":" + getMin() + ":" + getSec());
 		return "printed";
-		
+
 	}
 
 }

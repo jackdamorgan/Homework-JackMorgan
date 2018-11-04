@@ -1,6 +1,6 @@
 package oct26;
 
-public class AlarmClock extends ExtendedTime {
+public class AlarmClock extends Alarm {
 	private ExtendedTime currentTime;
 	private int alarmTime = 5;
 
@@ -23,15 +23,23 @@ public class AlarmClock extends ExtendedTime {
 	}
 
 	// builder
-	public AlarmClock(int hour, int min, int sec, boolean is24Hours) {
-		super(hour, min, sec, is24Hours);
+	public AlarmClock(int hour, int min, int sec, boolean isSet, int snoozeTime) {
+		super(hour, min, sec, isSet, snoozeTime);
 	}
 
-	public void setAlarm(int AlarmTime,int hour, int min, int sec, boolean is24Hours) {
-		
+	public AlarmClock(int hour, int min, int sec, boolean isSet, int snoozeTime, ExtendedTime currentTime,
+			int alarmTime) {
+		super(hour, min, sec, isSet, snoozeTime);
+		this.currentTime = currentTime;
+		this.alarmTime = alarmTime;
 	}
-	public SimpleTime setAlarm(int hour,int min,int sec) {
+
+	public void setAlarm(int AlarmTime, int hour, int min, int sec, boolean is24Hours) {
+
+	}
+
+	public SimpleTime setAlarm(int hour, int min, int sec) {
 		return currentTime;
-		
+
 	}
 }

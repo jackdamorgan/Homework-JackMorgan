@@ -2,11 +2,21 @@ package oct26;
 
 public class Alarm extends SimpleTime {
 
-	private boolean isSet, isSnooze;
-	private int snoozeTime;
-
-	//gets&sets
+	private SimpleTime time;
+	private boolean isSet = false, isSnooze = false;
+	private int snoozeTime = 0;
 	
+
+	// gets&sets
+
+	public SimpleTime getTime() {
+		return time;
+	}
+
+	public void setTime(SimpleTime time) {
+		this.time = time;
+	}
+
 	public boolean isSet() {
 		return isSet;
 	}
@@ -30,22 +40,24 @@ public class Alarm extends SimpleTime {
 	public void setSnoozeTime(int snoozeTime) {
 		this.snoozeTime = snoozeTime;
 	}
-	
-	//builder
-	
-	public Alarm(int hour, int min, int sec,boolean isSet,int snoozeTime,boolean isSnooze) {
+
+	// builder
+
+	public Alarm(int hour, int min, int sec, boolean isSet, int snoozeTime) {
 		super(hour, min, sec);
-		if(!isSet) {
-		this.isSnooze=false;	
-		this.isSet=false;
-		}else {
-		this.isSet=true;
-		this.isSnooze=true;
-		this.snoozeTime=snoozeTime;
-		}
-		
+		this.isSet = isSet;
+		this.snoozeTime = snoozeTime;
+
 	}
 
-	
+	public Alarm(int hour, int min, int sec, SimpleTime time, boolean isSet) {
+		super(hour, min, sec);
+		this.time = time;
+		this.isSet = isSet;
+	}
+
+	public void setAlarm() {
+
+	}
 
 }
